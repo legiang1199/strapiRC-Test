@@ -1,3 +1,4 @@
+import customCors from "../config/custom-cors";
 export default [
   "strapi::logger",
   "strapi::errors",
@@ -25,4 +26,5 @@ export default [
       keepHeaderOnError: true, // Optional, remove if not needed
     },
   },
+  customCors,
 ];
