@@ -1,4 +1,3 @@
-import customCors from "../config/custom-cors";
 export default [
   "strapi::logger",
   "strapi::errors",
@@ -18,13 +17,7 @@ export default [
         "zbrowser://h5.zdn.vn",
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-      headers: [
-        "Content-Type",
-        "Authorization",
-        "Access-Control-Allow-Headers", // This header is typically handled by the server, not the client
-      ],
-      keepHeaderOnError: true, // Optional, remove if not needed
+      headers: ["Content-Type", "Authorization"],
     },
   },
-  customCors,
 ];
