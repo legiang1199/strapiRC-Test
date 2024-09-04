@@ -13,11 +13,12 @@ export default [
     config: {
       enable: true,
       origin: [
-        "https://h5.zdn.vn", // Ensure this is the correct URL without trailing slashes
-        "zbrowser://h5.zdn.vn",
+        "https://h5.zdn.vn",
+        "zbrowser://h5.zdn.vn", // Ensure this is a valid URL
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: ["Content-Type", "Authorization"],
+      keepHeaderOnError: true, // Optional, remove if not needed
     },
   },
 ];
