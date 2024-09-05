@@ -25,6 +25,8 @@ export default [
         "X-Requested-With",
         "Access-Control-Allow-Headers",
         "Content-Type, Authorization",
+        "Referrer-Policy",
+        "strict-origin-when-cross-origin",
       ],
       credentials: true, // Allow credentials (cookies, etc.)
     },
