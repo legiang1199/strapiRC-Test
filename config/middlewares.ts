@@ -15,7 +15,8 @@ export default [
       enable: true,
       origin: [
         "https://h5.zdn.vn",
-        "zbrowser://h5.zdn.vn", // Ensure this is a valid URL
+        "zbrowser://h5.zdn.vn",
+        "https://strapirc-test.onrender.com",
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: [
