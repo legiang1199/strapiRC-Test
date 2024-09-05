@@ -10,23 +10,15 @@ export default [
   "strapi::favicon",
   "strapi::public",
   {
-    name: "strapi::cors",
-    config: {
-      enable: true,
-      origin: [
-        "https://h5.zdn.vn",
-        "zbrowser://h5.zdn.vn",
-        "https://strapirc-test.onrender.com",
-      ],
-      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-      allowedHeaders: ["Content-Type", "Authorization"],
-      headers: [
-        "X-Requested-With",
-        "Content-Type, Authorization",
-        "Referrer-Policy",
-        "strict-origin-when-cross-origin",
-      ],
-      credentials: true, // Allow credentials (cookies, etc.)
+    settings: {
+      cors: {
+        enabled: true,
+        origin: "*", // You may still want to enable default CORS settings
+      },
+    },
+    load: {
+      before: ["custom-cors"], // Ensure custom-cors middleware is loaded before default middlewares
+      order: ["custom-cors"], // Ensure it’s ordered correctly
     },
   },
 ];
