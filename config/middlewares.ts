@@ -1,5 +1,5 @@
-module.exports = [
-  // Default middlewares
+export default [
+  "strapi::logger",
   "strapi::logger",
   "strapi::errors",
   "strapi::security",
@@ -9,10 +9,25 @@ module.exports = [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
-
-  // Custom middlewares
-  {
-    name: "custom-cors",
-    resolve: "./src/middlewares/custom-cors",
-  },
+  "strapi::cors",
+  // {
+  //   name: "strapi::cors",
+  //   config: {
+  //     enable: true,
+  //     origin: [
+  //       "https://h5.zdn.vn",
+  //       "zbrowser://h5.zdn.vn",
+  //       "https://strapirc-test.onrender.com",
+  //     ],
+  //     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+  //     allowedHeaders: ["Content-Type", "Authorization"],
+  //     headers: [
+  //       "X-Requested-With",
+  //       "Content-Type, Authorization",
+  //       "Referrer-Policy",
+  //       "strict-origin-when-cross-origin",
+  //     ],
+  //     credentials: true, // Allow credentials (cookies, etc.)
+  //   },
+  // },
 ];
