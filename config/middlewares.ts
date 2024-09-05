@@ -23,6 +23,7 @@ export default [
         "Authorization",
         "X-Requested-With",
         "Access-Control-Allow-Headers",
+        "Content-Type, Authorization",
       ],
       credentials: true, // Allow credentials (cookies, etc.)
     },
