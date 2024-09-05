@@ -18,7 +18,12 @@ export default [
         "zbrowser://h5.zdn.vn", // Ensure this is a valid URL
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-      headers: ["Content-Type", "Authorization", "X-Requested-With"],
+      headers: [
+        "Content-Type",
+        "Authorization",
+        "X-Requested-With",
+        "Access-Control-Allow-Headers",
+      ],
       credentials: true, // Allow credentials (cookies, etc.)
     },
   },
