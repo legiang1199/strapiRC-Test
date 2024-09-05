@@ -1,5 +1,5 @@
-export default [
-  "strapi::logger",
+module.exports = [
+  // Default middlewares
   "strapi::logger",
   "strapi::errors",
   "strapi::security",
@@ -9,16 +9,10 @@ export default [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+
+  // Custom middlewares
   {
-    settings: {
-      cors: {
-        enabled: true,
-        origin: "*", // You may still want to enable default CORS settings
-      },
-    },
-    load: {
-      before: ["custom-cors"], // Ensure custom-cors middleware is loaded before default middlewares
-      order: ["custom-cors"], // Ensure it’s ordered correctly
-    },
+    name: "custom-cors",
+    resolve: "./src/middlewares/custom-cors",
   },
 ];
