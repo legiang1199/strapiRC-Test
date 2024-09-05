@@ -22,7 +22,6 @@ export default [
       allowedHeaders: ["Content-Type", "Authorization"],
       headers: [
         "X-Requested-With",
-        "Access-Control-Allow-Headers",
         "Content-Type, Authorization",
         "Referrer-Policy",
         "strict-origin-when-cross-origin",
