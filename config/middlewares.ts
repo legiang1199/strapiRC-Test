@@ -19,9 +19,8 @@ export default [
         "https://strapirc-test.onrender.com",
       ],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
       headers: [
-        "Content-Type",
-        "Authorization",
         "X-Requested-With",
         "Access-Control-Allow-Headers",
         "Content-Type, Authorization",
