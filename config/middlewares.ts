@@ -4,12 +4,20 @@ export default [
   "strapi::errors",
   "strapi::security",
   "strapi::poweredBy",
+  {
+    name: "strapi::cors",
+    config: {
+      enabled: true,
+      header: "*",
+      origin: ["https://h5.zdn.vn", "zbrowser://h5.zdn.vn"],
+    },
+  },
   "strapi::query",
   "strapi::body",
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
-  "strapi::cors",
+
   // {
   //   name: "strapi::cors",
   //   config: {
