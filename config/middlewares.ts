@@ -7,8 +7,13 @@ export default [
   {
     name: "strapi::cors",
     config: {
-      enabled: true,
-      header: "*",
+      header: [
+        "Content-Type",
+        "Authorization",
+        "Origin",
+        "X-Requested-With",
+        "Accept",
+      ],
       origin: ["https://h5.zdn.vn", "zbrowser://h5.zdn.vn"],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
     },
