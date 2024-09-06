@@ -10,6 +10,7 @@ export default [
       enabled: true,
       header: "*",
       origin: ["https://h5.zdn.vn", "zbrowser://h5.zdn.vn"],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
     },
   },
   "strapi::query",
