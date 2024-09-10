@@ -471,6 +471,31 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    statusOfOrder: Schema.Attribute.Boolean;
+    total: Schema.Attribute.Integer;
+    items: Schema.Attribute.Component<'product.items', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -492,6 +517,35 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     variants: Schema.Attribute.Relation<'manyToMany', 'api::variant.variant'>;
+    statusOfProduct: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+  };
+}
+
+export interface ApiSessionSession extends Struct.SingleTypeSchema {
+  collectionName: 'sessions';
+  info: {
+    singularName: 'session';
+    pluralName: 'sessions';
+    displayName: 'session';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    users_permissions_user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    order: Schema.Attribute.Relation<'oneToOne', 'api::order.order'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -889,7 +943,9 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
+      'api::session.session': ApiSessionSession;
       'api::variant.variant': ApiVariantVariant;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

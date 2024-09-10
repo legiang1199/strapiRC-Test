@@ -43,6 +43,9 @@
       "relation": "manyToMany",
       "target": "api::variant.variant",
       "inversedBy": "products"
+    },
+    "statusOfProduct": {
+      "type": "boolean"
     }
   }
 }

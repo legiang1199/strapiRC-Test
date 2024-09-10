@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "statusOfOrder": {
+      "type": "boolean"
+    },
+    "total": {
+      "type": "integer"
+    },
+    "items": {
+      "displayName": "items",
+      "type": "component",
+      "repeatable": true,
+      "component": "product.items"
+    }
+  }
+}
