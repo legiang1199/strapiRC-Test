@@ -405,7 +405,6 @@ export interface PluginUsersPermissionsUser
     displayName: 'User';
   };
   options: {
-    timestamps: true;
     draftAndPublish: false;
   };
   attributes: {
@@ -434,6 +433,8 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    name: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -529,23 +530,22 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSessionSession extends Struct.SingleTypeSchema {
+export interface ApiSessionSession extends Struct.CollectionTypeSchema {
   collectionName: 'sessions';
   info: {
     singularName: 'session';
     pluralName: 'sessions';
     displayName: 'session';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    order: Schema.Attribute.Relation<'oneToOne', 'api::order.order'>;
     users_permissions_user: Schema.Attribute.Relation<
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    order: Schema.Attribute.Relation<'oneToOne', 'api::order.order'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
