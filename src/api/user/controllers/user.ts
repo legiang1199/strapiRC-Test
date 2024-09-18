@@ -10,19 +10,15 @@ export default {
       const userAccessToken = ctx.request.headers["access-token"];
       const token = ctx.request.headers["token"];
 
-      if (!userAccessToken) {
+      if (!userAccessToken || !token) {
         throw new NotFoundError("Access token not found");
-      }
-
-      if (!token) {
-        throw new NotFoundError("Token not found");
       }
 
       const response = await fetch(endpoint, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "ALLOW-CORS": "*",
+          "Access-Control-Allow-Origin": "*",
           access_token: userAccessToken,
           code: token,
           secret_key: secretKey,
