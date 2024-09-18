@@ -22,6 +22,7 @@ export default {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "ALLOW-CORS": "*",
           access_token: userAccessToken,
           code: token,
           secret_key: secretKey,
@@ -39,6 +40,10 @@ export default {
       ctx.body = data;
     } catch (err) {
       ctx.badRequest(err.message);
+      ctx.errors.push({
+        id: "ZaloPhoneNumber",
+        message: err.message,
+      });
 
       return;
     }
