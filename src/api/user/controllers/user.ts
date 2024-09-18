@@ -36,12 +36,7 @@ export default {
       ctx.body = data;
     } catch (err) {
       ctx.badRequest(err.message);
-      ctx.errors.push({
-        id: "ZaloPhoneNumber",
-        message: err.message,
-      });
-
-      return;
+      return err;
     }
   },
 };
