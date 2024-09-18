@@ -38,7 +38,9 @@ export default {
       const data = await response.json();
       ctx.body = data;
     } catch (err) {
-      ctx.throw(400, err.message);
+      ctx.badRequest(err.message);
+
+      return;
     }
   },
 };
